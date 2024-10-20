@@ -19,6 +19,11 @@ class UserList(generics.ListAPIView):
                           IsOwnerOrReadOnly]
 
 
+class UserDetail(generics.RetrieveAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+
 class SnippetList(generics.ListCreateAPIView):
     """List all snippets, or create a new snippet."""
     queryset = Snippet.objects.all()
